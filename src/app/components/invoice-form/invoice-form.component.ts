@@ -58,14 +58,14 @@ export class InvoiceFormComponent {
     if (this.invoiceForm.invalid) {
       this.collectErrors().subscribe(errors => {
         this.openErrorModal(errors);
-        return;
       });
+    } else {
+      this.gotoSummary();
     }
 
     this.dialogRef.afterClosed().subscribe((result: any) => {
       if (result && result.event == "Continue") {
-        this.invoiceService.setItems(this.getValidItems());
-        this.router.navigate(['/summary']);
+        this.gotoSummary();
       }
     });
   }
@@ -78,6 +78,11 @@ export class InvoiceFormComponent {
         errors: errors
       }
     })
+  }
+
+  private gotoSummary() {
+    this.invoiceService.setItems(this.getValidItems());
+    this.router.navigate(['/summary']);
   }
 
   private getValidItems(): InvoiceItem[] {
