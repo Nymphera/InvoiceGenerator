@@ -1,0 +1,49 @@
+mat-card-title {
+  margin-left: 10px;
+}
+
+.invoice-card {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.invoice-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.company-info {
+  margin-bottom: 20px;
+}
+
+.items-table {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th.mat-header-cell {
+  background-color: #f1f1f1;
+  font-weight: bold;
+  text-align: left;
+  padding: 8px;
+}
+
+td.mat-cell {
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+.total {
+  text-align: right;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}

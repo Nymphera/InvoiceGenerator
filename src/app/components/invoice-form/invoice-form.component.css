@@ -1,0 +1,31 @@
+.item-row .mat-mdc-form-field{
+  width: 30%;
+  height: 100%;
+}
+
+.items-container {
+  max-height: 500px;
+  overflow-y: auto;
+  margin-bottom: 16px;
+}
+
+.item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.button-container {
+  min-height: 50px;
+  display: flex;
+  justify-content: space-between;
+  float: right;
+}
+
+mat-card-title {
+  margin-left: 10px;
+}
+
+
+

@@ -1,0 +1,45 @@
+<mat-card *ngIf="items.length != 0" class="invoice-card">
+  <mat-card-title class="invoice-title">Invoice Summary</mat-card-title>
+
+  <div class="company-info">
+    <h2>Company Name</h2>
+    <p>{{ company.name }}</p>
+    <p>Address: {{ company.address }}</p>
+    <p>Phone: {{ company.phones.join(', ') }}</p>
+  </div>
+
+  <mat-divider></mat-divider>
+
+  <div class="items-table">
+    <table mat-table [dataSource]="items" class="mat-elevation-z8">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Item Name</th>
+        <td mat-cell *matCellDef="let item">{{ item.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="count">
+        <th mat-header-cell *matHeaderCellDef>Count</th>
+        <td mat-cell *matCellDef="let item">{{ item.count }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Price</th>
+        <td mat-cell *matCellDef="let item">{{ item.price | currency }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef>Total</th>
+        <td mat-cell *matCellDef="let item">{{ item.count * item.price | currency }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <div class="total">
+      <h3>Total Amount: {{ totalCount | currency }}</h3>
+    </div>
+  </div>
+</mat-card>
+
+<div *ngIf="items.length === 0">No items</div>
